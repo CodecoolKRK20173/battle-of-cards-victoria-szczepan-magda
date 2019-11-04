@@ -2,12 +2,12 @@ package main.java;
 
 public abstract class Player {
 
-    public abstract void getHand();
+    public abstract Hand getHand();
 
-    public abstract void addPoints();
+    public abstract void addPoints(int pointsAmount);
 
-    public abstract void getPoints();
+    public abstract int getPoints();
 
-    public abstract void getName();
+    public abstract String getName();
 
 }
