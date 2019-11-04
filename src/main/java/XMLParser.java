@@ -1,3 +1,5 @@
+package main.java;
+
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -8,7 +10,6 @@ import java.util.*;
 
 public class XMLParser implements CardsParser{
 
-    @Override
     public List<Card> loadFromFile(String path) {
         Map<String, Integer> parameters = new HashMap<>();
         List<Card> cards = new ArrayList<Card>();
@@ -30,7 +31,7 @@ public class XMLParser implements CardsParser{
                             Element parameterElement = (Element) nParameter;
                             String parameterId = parameterElement.getAttribute("id");
                             String value = parameterElement.getTextContent();
-                            parameters.put(parameterId, Integer.valueOf(value));
+                            parameters.put(parameterId, Integer.parseInt(value));
                         }
                     }
                     Card card = new Card(carId, parameters);
