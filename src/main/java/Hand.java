@@ -20,4 +20,11 @@ public class Hand{
         cards.remove(lastElementIndex);
     }
 
+    public boolean isEmpty(){
+        if (cards.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
 }
