@@ -37,9 +37,9 @@ public class XMLParser implements CardsParser{
                     cards.add(card);
                 }
             }
-            return cards;
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
+        return cards;
     }
 }
