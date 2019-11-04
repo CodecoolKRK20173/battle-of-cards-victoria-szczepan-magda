@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cars>
+    <Car id="Bugatti Veyron">
+        <Parameters>
+            <Parameter id="maxSpeed">415</Parameter>
+            <Parameter id="price">6795000</Parameter>
+            <Parameter id="acceleration">3</Parameter>
+        </Parameters>
+    </Car>
+    ...
+    <Car id="Zenvo ST1">
+        <Parameters>
+            <Parameter id="maxSpeed">375</Parameter>
+            <Parameter id="price">5472000</Parameter>
+            <Parameter id="acceleration">2.5</Parameter>
+        </Parameters>
+    </Car>
+</Cars>
