@@ -55,7 +55,7 @@ public class Table {
     }
 
     public int countCardsOnTable() {
-        return 0;
+        return topCards1.size() + topCards2.size();
     }
 
     public String toString() {
