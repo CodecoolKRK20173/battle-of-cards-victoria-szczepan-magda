@@ -58,6 +58,14 @@ public class Table {
         return 0;
     }
 
+    public String toString() {
+        String cardToPrint = "";
+        cardToPrint += "First player's card:\n" + topCards1.get(topCards1.size() - 1).toString() + "\n";
+        cardToPrint += "Second player's card:\n" + topCards2.get(topCards2.size() - 1).toString() + "\n";
+
+        return cardToPrint;
+    }
+
 
 
 }
