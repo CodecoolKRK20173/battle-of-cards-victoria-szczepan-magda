@@ -14,9 +14,9 @@ public class Table {
 
     private Map<Player, List<Card>> cardsOnTable;
 
-    Table() {
-        player1 = new PlayerHuman("player1");
-        player2 = new PlayerHuman("player2");
+    Table(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
 
         topCards1 = new ArrayList<>();
         topCards2 = new ArrayList<>();
@@ -29,11 +29,29 @@ public class Table {
         cardsOnTable.clear();
     }
 
-    public void addTopCards(Card card1, Card card2) {
+    private void addTopCards(Card card1, Card card2) {
         topCards1.add(card1);
         topCards2.add(card2);
         cardsOnTable.put(player1, topCards1);
         cardsOnTable.put(player2, topCards2);
+    }
+
+    public void getTopCards() {
+        Card topCard1 = player1.getHand().getTopCard();
+        player1.getHand().removeTopCard();
+        Card topCard2 = player2.getHand().getTopCard();
+        player2.getHand().removeTopCard();
+        addTopCards(topCard1, topCard2);
+    }
+
+    public Boolean getBattleResult(Player player) {
+        Boolean isResolved = null;
+        if (player.equals(player1)) {
+            isResolved = topCards1.get(topCards1.size() - 1).compare(topCards2.get(topCards2.size() - 1));
+        } else {
+            isResolved = topCards2.get(topCards2.size() - 1).compare(topCards1.get(topCards1.size() - 1));
+        }
+        return isResolved;
     }
 
     public int countCardsOnTable() {
