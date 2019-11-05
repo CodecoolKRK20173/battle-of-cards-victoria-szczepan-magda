@@ -37,10 +37,22 @@ public class Game {
     }
 
     public void turn(Player player) {
+        View.showCard(player.getHand().getTopCard().toString());
+        View.printParametersToChoose(player.getHand().getTopCard().getParameters());
 
     }
 
-
+    private String handleUserChoice() {
+        String parameter = "";
+        if (View.getUserInput().equals("1")) {
+            parameter = "maxSpeed";
+        } else if (View.getUserInput().equals("2")) {
+            parameter = "acceleration";
+        } else if(View.getUserInput().equals("3")) {
+            parameter = "price";
+        }
+        return  parameter;
+    }
 
     public void play() {
         loadCardsToDeck();
