@@ -85,6 +85,18 @@ public class Game {
         return parameter;
     }
 
+    private String getWinner(){
+        if (player1.getPoints() > player2.getPoints()){
+            return player1.getName();
+        }
+        else if (player1.getPoints() < player2.getPoints()){
+            return player2.getName();
+        }
+        else {
+            return "";
+        }
+    }
+
     public void play() {
         loadCardsToDeck();
         shuffleCards();
@@ -93,6 +105,7 @@ public class Game {
             turn(player1);
             turn(player2);
         }
+        View.display(getWinner() + " wins the game!");
     }
 
 }
