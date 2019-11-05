@@ -46,7 +46,32 @@ public class Game {
             View.display(table.toString());
             isResolved = table.getBattleResult(player);
         } while (isResolved == null);
+
+
+
+        if (isResolved) {
+            if (player.equals(player1)) {
+                announceWinner(player1);
+            } else {
+                announceWinner(player2);
+            }
+        } else {
+            if (player.equals(player1)) {
+                announceWinner(player2);
+            } else {
+                announceWinner(player1);
+            }
+        }
+
+        table.removeAll();
+
     }
+
+    private void announceWinner(Player player) {
+        View.display(player.getName() + " wins round! And gets " + table.countCardsOnTable() + " points!");
+        player.addPoints(table.countCardsOnTable());
+    }
+
 
     private String handleUserChoice() {
         String parameter = "";
