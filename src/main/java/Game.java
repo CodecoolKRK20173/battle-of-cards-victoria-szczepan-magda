@@ -37,9 +37,15 @@ public class Game {
     }
 
     public void turn(Player player) {
-        View.showCard(player.getHand().getTopCard().toString());
+        View.display(player.getHand().getTopCard().toString());
         View.printParametersToChoose(player.getHand().getTopCard().getParameters());
-
+        String userChoice = handleUserChoice();
+        Boolean isResolved;
+        do {
+            table.getTopCards();
+            View.display(table.toString());
+            isResolved = table.getBattleResult(player);
+        } while (isResolved == null);
     }
 
     private String handleUserChoice() {
@@ -51,7 +57,7 @@ public class Game {
         } else if(View.getUserInput().equals("3")) {
             parameter = "price";
         }
-        return  parameter;
+        return parameter;
     }
 
     public void play() {
