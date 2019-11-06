@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Card implements Comparator {
     private String name;
-    private Map<String, Integer> parameters;
+    private Map<String, Float> parameters;
     private List<String> parametersNames;
-    public Card(String name, Map<String, Integer> parameters) {
+    public Card(String name, Map<String, Float> parameters) {
         this.name = name;
         this.parameters = parameters;
         parametersNames = Arrays.asList("maxSpeed", "price", "acceleration");
@@ -16,13 +16,13 @@ public class Card implements Comparator {
         return name;
     }
 
-    public int getMaxSpeed() {
+    public float getMaxSpeed() {
         return parameters.get("maxSpeed");
     }
-    public int getPrice() {
+    public float getPrice() {
         return parameters.get("price");
     }
-    public int getAcceleration() {
+    public float getAcceleration() {
         return parameters.get("acceleration");
     }
     public String toString(){

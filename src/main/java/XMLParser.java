@@ -19,7 +19,7 @@ public class XMLParser implements CardsParser{
             doc.getDocumentElement().normalize();
             NodeList nCarsList = doc.getElementsByTagName("Car");
             for (int i = 0; i < nCarsList.getLength(); i++) {
-                Map<String, Integer> parameters = new LinkedHashMap<>();
+                Map<String, Float> parameters = new LinkedHashMap<>();
                 Node nCar = nCarsList.item(i);
                 if(nCar.getNodeType() == Node.ELEMENT_NODE){
                     Element carElement = (Element) nCar;
@@ -31,7 +31,7 @@ public class XMLParser implements CardsParser{
                             Element parameterElement = (Element) nParameter;
                             String parameterId = parameterElement.getAttribute("id");
                             String value = parameterElement.getTextContent();
-                            parameters.put(parameterId, Integer.parseInt(value));
+                            parameters.put(parameterId, Float.parseFloat(value));
                         }
                     }
                     Card card = new Card(carId, parameters);
