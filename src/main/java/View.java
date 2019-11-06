@@ -1,5 +1,6 @@
 package main.java;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,11 +12,12 @@ public class View {
 
     public static String getUserInput(){
         Scanner scanner = new Scanner(System.in);
+        String[] options = {"1","2","3"};
         String input;
         do{
             System.out.println("Please enter 1, 2 or 3");
             input = scanner.nextLine();
-        } while (!input.equals("1") && !input.equals("2") && !input.equals("3"));
+        } while (!Arrays.asList(options).contains(input));
         return input;
     }
 
