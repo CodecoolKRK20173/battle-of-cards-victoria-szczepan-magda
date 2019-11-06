@@ -29,9 +29,9 @@ public class Game {
     public void dealCards() {
         for (int i = 0; i < deck.size(); i++) {
             if (i % 2 == 0) {
-                player1.getHand().addCard(deck.get(i));
+                player1.addCardToDeck(deck.get(i));
             } else {
-                player2.getHand().addCard(deck.get(i));
+                player2.addCardToDeck(deck.get(i));
             }
         }
     }
@@ -47,7 +47,6 @@ public class Game {
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
         } while (isResolved == null && !player1.isHandEmpty());
-
         if (isResolved) {
             if (player.equals(player1)) {
                 announceWinner(player1);
@@ -66,7 +65,7 @@ public class Game {
     }
 
     private void announceWinner(Player player) {
-        View.display(player.getName() + " wins round! And gets " + table.countCardsOnTable() + " points!");
+        View.display(player.getName() + " wins round! And gets " + table.countCardsOnTable() + " points!\n");
         player.addPoints(table.countCardsOnTable());
     }
 
@@ -92,7 +91,7 @@ public class Game {
             return player2.getName();
         }
         else {
-            return "";
+            return "Nobody";
         }
     }
 
