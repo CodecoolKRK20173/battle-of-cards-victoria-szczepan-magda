@@ -15,4 +15,20 @@
             <Parameter id="acceleration">2</Parameter>
         </Parameters>
     </Car>
+    ...
+    <Car id="Lamborghini Veneno">
+        <Parameters>
+            <Parameter id="maxSpeed">387</Parameter>
+            <Parameter id="price">4400000</Parameter>
+            <Parameter id="acceleration">3</Parameter>
+        </Parameters>
+    </Car>
+    ...
+    <Car id="Ferrari F60">
+        <Parameters>
+            <Parameter id="maxSpeed">410</Parameter>
+            <Parameter id="price">2467000</Parameter>
+            <Parameter id="acceleration">4</Parameter>
+        </Parameters>
+    </Car>
 </Cars>
