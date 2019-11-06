@@ -16,4 +16,6 @@ public abstract class Player {
 
     public abstract void addCardToDeck(Card card);
 
+    public abstract void removeTopCardFromHand();
+
 }

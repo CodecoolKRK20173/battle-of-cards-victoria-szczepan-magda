@@ -38,10 +38,10 @@ public class Table {
     }
 
     public void getTopCards() {
-        Card topCard1 = player1.getHand().getTopCard();
-        player1.getHand().removeTopCard();
-        Card topCard2 = player2.getHand().getTopCard();
-        player2.getHand().removeTopCard();
+        Card topCard1 = player1.getTopCardFromHand();
+        player1.removeTopCardFromHand();
+        Card topCard2 = player2.getTopCardFromHand();
+        player2.removeTopCardFromHand();
         addTopCards(topCard1, topCard2);
     }
 

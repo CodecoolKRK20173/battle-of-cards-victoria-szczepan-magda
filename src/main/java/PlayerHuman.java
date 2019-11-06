@@ -46,4 +46,9 @@ public class PlayerHuman extends Player {
     public void addCardToDeck(Card card) {
         hand.addCard(card);
     }
+
+    @Override
+    public void removeTopCardFromHand() {
+        hand.removeTopCard();
+    }
 }
