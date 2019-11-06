@@ -38,13 +38,13 @@ public class Game {
 
     public void turn(Player player) {
         View.display(player.getHand().getTopCard().toString());
-        View.printParametersToChoose(player.getHand().getTopCard().getParameters());
+        View.printParametersToChoose(player.getHand().getTopCard().getParametersKeys());
         String userChoice = handleUserChoice();
         Boolean isResolved;
         do {
             table.getTopCards();
             View.display(table.toString());
-            isResolved = table.getBattleResult(player);
+            isResolved = table.getBattleResult(player, userChoice);
         } while (isResolved == null);
 
 

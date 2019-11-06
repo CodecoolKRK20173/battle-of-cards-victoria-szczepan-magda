@@ -44,12 +44,12 @@ public class Table {
         addTopCards(topCard1, topCard2);
     }
 
-    public Boolean getBattleResult(Player player) {
+    public Boolean getBattleResult(Player player, String parameter) {
         Boolean isResolved = null;
         if (player.equals(player1)) {
-            isResolved = topCards1.get(topCards1.size() - 1).compare(topCards2.get(topCards2.size() - 1));
+            isResolved = topCards1.get(topCards1.size() - 1).compareCards(topCards2.get(topCards2.size() - 1));
         } else {
-            isResolved = topCards2.get(topCards2.size() - 1).compare(topCards1.get(topCards1.size() - 1));
+            isResolved = topCards2.get(topCards2.size() - 1).compareCards(topCards1.get(topCards1.size() - 1));
         }
         return isResolved;
     }
