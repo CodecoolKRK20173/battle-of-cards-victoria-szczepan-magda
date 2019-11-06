@@ -47,7 +47,6 @@ public class Game {
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
         } while (isResolved == null && !player1.isHandEmpty());
-
         if (isResolved) {
             if (player.equals(player1)) {
                 announceWinner(player1);
@@ -66,7 +65,7 @@ public class Game {
     }
 
     private void announceWinner(Player player) {
-        View.display(player.getName() + " wins round! And gets " + table.countCardsOnTable() + " points!");
+        View.display(player.getName() + " wins round! And gets " + table.countCardsOnTable() + " points!\n");
         player.addPoints(table.countCardsOnTable());
     }
 
@@ -92,7 +91,7 @@ public class Game {
             return player2.getName();
         }
         else {
-            return "";
+            return "Nobody";
         }
     }
 
