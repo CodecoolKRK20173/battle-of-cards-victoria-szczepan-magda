@@ -1,18 +1,16 @@
 package main.java;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Card implements Comparator {
     private String name;
     private Map<String, Integer> parameters;
-    private Set<String> parametersNameSet;
+    private List<String> parametersNames;
     public Card(String name, Map<String, Integer> parameters) {
         this.name = name;
         this.parameters = parameters;
-        parametersNameSet = parameters.keySet();
+        parametersNames = Arrays.asList("maxSpeed", "price", "acceleration");
     }
+
 
     public String getName() {
         return name;
@@ -31,13 +29,14 @@ public class Card implements Comparator {
         String content = "";
         content = content.concat("\n"+name+":" +
                 "\nMax Speed: " + getMaxSpeed()+" km/h"+
-                "\nAcceleration: " + getAcceleration()+" s"+
-                "\nPrice: " + getPrice())+" zl\n";
+                "\nPrice: " + getPrice())+" zl"+
+                "\nAcceleration: " + getAcceleration()+" s\n"
+                ;
         return content;
     }
 
     public List<String> getParametersKeys(){
-        return new ArrayList<>(parametersNameSet);
+        return parametersNames;
     }
 
     public boolean equalsCards(Card obj) {
