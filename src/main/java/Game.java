@@ -45,7 +45,7 @@ public class Game {
             table.getTopCards();
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
-        } while (isResolved == null);
+        } while (isResolved == null && !player1.getHand().isEmpty());
 
         if (isResolved) {
             if (player.equals(player1)) {
@@ -101,6 +101,7 @@ public class Game {
         dealCards();
         while(!player1.getHand().isEmpty()) {
             turn(player1);
+            if(!player2.getHand().isEmpty())
             turn(player2);
         }
         View.display(getWinner() + " wins the game!");
