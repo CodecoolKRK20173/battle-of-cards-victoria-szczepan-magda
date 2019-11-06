@@ -29,9 +29,9 @@ public class Game {
     public void dealCards() {
         for (int i = 0; i < deck.size(); i++) {
             if (i % 2 == 0) {
-                player1.getHand().addCard(deck.get(i));
+                player1.addCardToDeck(deck.get(i));
             } else {
-                player2.getHand().addCard(deck.get(i));
+                player2.addCardToDeck(deck.get(i));
             }
         }
     }

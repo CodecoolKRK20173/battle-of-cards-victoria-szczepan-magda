@@ -14,4 +14,6 @@ public abstract class Player {
 
     public abstract boolean isHandEmpty();
 
+    public abstract void addCardToDeck(Card card);
+
 }
