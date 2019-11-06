@@ -37,15 +37,16 @@ public class Game {
     }
 
     public void turn(Player player) {
-        View.display(player.getHand().getTopCard().toString());
-        View.printParametersToChoose(player.getHand().getTopCard().getParametersKeys());
+        Card topCard = player.getTopCardFromHand();
+        View.display(topCard.toString());
+        View.printParametersToChoose(topCard.getParametersKeys());
         String userChoice = handleUserChoice();
         Boolean isResolved;
         do {
             table.getTopCards();
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
-        } while (isResolved == null && !player1.getHand().isEmpty());
+        } while (isResolved == null && !player1.isHandEmpty());
 
         if (isResolved) {
             if (player.equals(player1)) {
@@ -99,9 +100,9 @@ public class Game {
         loadCardsToDeck();
         shuffleCards();
         dealCards();
-        while(!player1.getHand().isEmpty()) {
+        while(!player1.isHandEmpty()) {
             turn(player1);
-            if(!player2.getHand().isEmpty())
+            if(!player2.isHandEmpty())
             turn(player2);
         }
         View.display(getWinner() + " wins the game!");

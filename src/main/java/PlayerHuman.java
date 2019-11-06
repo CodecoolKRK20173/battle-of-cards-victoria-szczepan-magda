@@ -31,4 +31,14 @@ public class PlayerHuman extends Player {
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public Card getTopCardFromHand() {
+        return hand.getTopCard();
+    }
+
+    @Override
+    public boolean isHandEmpty() {
+        return hand.isEmpty();
+    }
 }
