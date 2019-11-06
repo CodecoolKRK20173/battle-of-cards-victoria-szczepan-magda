@@ -11,7 +11,6 @@ import java.util.*;
 public class XMLParser implements CardsParser{
 
     public List<Card> loadFromFile(String path) {
-        Map<String, Integer> parameters = new HashMap<>();
         List<Card> cards = new ArrayList<Card>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
@@ -20,6 +19,7 @@ public class XMLParser implements CardsParser{
             doc.getDocumentElement().normalize();
             NodeList nCarsList = doc.getElementsByTagName("Car");
             for (int i = 0; i < nCarsList.getLength(); i++) {
+                Map<String, Integer> parameters = new LinkedHashMap<>();
                 Node nCar = nCarsList.item(i);
                 if(nCar.getNodeType() == Node.ELEMENT_NODE){
                     Element carElement = (Element) nCar;
