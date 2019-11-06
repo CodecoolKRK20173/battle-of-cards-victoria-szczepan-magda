@@ -45,7 +45,12 @@ public class Card implements Comparator {
         return obj.name.equals(this.name) && obj.parameters.equals(this.parameters);
     }
 
-    public boolean compareCards(Card card, String parameter){
-        return this.parameters.get(parameter) > card.parameters.get(parameter);
+    public Boolean compareCards(Card card, String parameter){
+        if(this.parameters.get(parameter).equals( card.parameters.get(parameter)))
+            return null;
+        if (!parameter.equals("acceleration"))
+            return this.parameters.get(parameter) > card.parameters.get(parameter);
+        else
+            return this.parameters.get(parameter) < card.parameters.get(parameter);
     }
 }
