@@ -1,4 +1,6 @@
 package main.java;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Card {
@@ -29,5 +31,9 @@ public class Card {
                 "\nAcceleration: " + getAcceleration()+" s"+
                 "\nPrice: " + getPrice())+" zl\n";
         return content;
+    }
+
+    public List<String> getParameters(){
+        return new ArrayList<>(parameters.keySet());
     }
 }
