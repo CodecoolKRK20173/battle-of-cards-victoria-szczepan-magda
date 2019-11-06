@@ -47,9 +47,9 @@ public class Table {
     public Boolean getBattleResult(Player player, String parameter) {
         Boolean isResolved = null;
         if (player.equals(player1)) {
-            isResolved = topCards1.get(topCards1.size() - 1).compareCards(topCards2.get(topCards2.size() - 1));
+            isResolved = topCards1.get(topCards1.size() - 1).compareCards(topCards2.get(topCards2.size() - 1), parameter);
         } else {
-            isResolved = topCards2.get(topCards2.size() - 1).compareCards(topCards1.get(topCards1.size() - 1));
+            isResolved = topCards2.get(topCards2.size() - 1).compareCards(topCards1.get(topCards1.size() - 1), parameter);
         }
         return isResolved;
     }
