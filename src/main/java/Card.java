@@ -2,13 +2,16 @@ package main.java;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Card implements Comparator {
     private String name;
     private Map<String, Integer> parameters;
+    private Set<String> parametersNameSet;
     public Card(String name, Map<String, Integer> parameters) {
         this.name = name;
         this.parameters = parameters;
+        parametersNameSet = parameters.keySet();
     }
 
     public String getName() {
@@ -34,7 +37,7 @@ public class Card implements Comparator {
     }
 
     public List<String> getParametersKeys(){
-        return new ArrayList<>(parameters.keySet());
+        return new ArrayList<>(parametersNameSet);
     }
 
     public boolean equalsCards(Card obj) {
