@@ -1,9 +1,6 @@
 package main.java;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Table {
 
@@ -20,13 +17,17 @@ public class Table {
 
         topCards1 = new ArrayList<>();
         topCards2 = new ArrayList<>();
-
-        cardsOnTable = new HashMap<>();
+        cardsOnTable = new LinkedHashMap<>();
     }
 
 
     public void removeAll() {
-        cardsOnTable.clear();
+        Iterator<Map.Entry<Player, List<Card>>> iter = cardsOnTable.entrySet().iterator();
+        while(iter.hasNext()){
+            cardsOnTable.remove(iter.next().getKey(), iter.next().getValue());
+        }
+        topCards1.clear();
+        topCards2.clear();
     }
 
     private void addTopCards(Card card1, Card card2) {

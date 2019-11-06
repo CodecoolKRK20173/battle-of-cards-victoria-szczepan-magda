@@ -1,15 +1,16 @@
 package main.java;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Card implements Comparator {
     private String name;
     private Map<String, Integer> parameters;
+    private List<String> parametersNames;
     public Card(String name, Map<String, Integer> parameters) {
         this.name = name;
         this.parameters = parameters;
+        parametersNames = Arrays.asList("maxSpeed", "price", "acceleration");
     }
+
 
     public String getName() {
         return name;
@@ -28,13 +29,14 @@ public class Card implements Comparator {
         String content = "";
         content = content.concat("\n"+name+":" +
                 "\nMax Speed: " + getMaxSpeed()+" km/h"+
-                "\nAcceleration: " + getAcceleration()+" s"+
-                "\nPrice: " + getPrice())+" zl\n";
+                "\nPrice: " + getPrice())+" zl"+
+                "\nAcceleration: " + getAcceleration()+" s\n"
+                ;
         return content;
     }
 
     public List<String> getParametersKeys(){
-        return new ArrayList<>(parameters.keySet());
+        return parametersNames;
     }
 
     public boolean equalsCards(Card obj) {
@@ -43,7 +45,12 @@ public class Card implements Comparator {
         return obj.name.equals(this.name) && obj.parameters.equals(this.parameters);
     }
 
-    public boolean compareCards(Card card, String parameter){
-        return this.parameters.get(parameter) > card.parameters.get(parameter);
+    public Boolean compareCards(Card card, String parameter){
+        if(this.parameters.get(parameter).equals( card.parameters.get(parameter)))
+            return null;
+        if (!parameter.equals("acceleration"))
+            return this.parameters.get(parameter) > card.parameters.get(parameter);
+        else
+            return this.parameters.get(parameter) < card.parameters.get(parameter);
     }
 }

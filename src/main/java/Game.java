@@ -45,9 +45,7 @@ public class Game {
             table.getTopCards();
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
-        } while (isResolved == null);
-
-
+        } while (isResolved == null && !player1.getHand().isEmpty());
 
         if (isResolved) {
             if (player.equals(player1)) {
@@ -64,7 +62,6 @@ public class Game {
         }
 
         table.removeAll();
-
     }
 
     private void announceWinner(Player player) {
@@ -75,12 +72,13 @@ public class Game {
 
     private String handleUserChoice() {
         String parameter = "";
-        if (View.getUserInput().equals("1")) {
+        String userInput = View.getUserInput();
+        if (userInput.equals("1")) {
             parameter = "maxSpeed";
-        } else if (View.getUserInput().equals("2")) {
-            parameter = "acceleration";
-        } else if(View.getUserInput().equals("3")) {
+        } else if (userInput.equals("2")) {
             parameter = "price";
+        } else if(userInput.equals("3")) {
+            parameter = "acceleration";
         }
         return parameter;
     }
@@ -103,6 +101,7 @@ public class Game {
         dealCards();
         while(!player1.getHand().isEmpty()) {
             turn(player1);
+            if(!player2.getHand().isEmpty())
             turn(player2);
         }
         View.display(getWinner() + " wins the game!");

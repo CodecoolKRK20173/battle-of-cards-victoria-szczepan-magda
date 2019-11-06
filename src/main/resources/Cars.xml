@@ -12,7 +12,7 @@
         <Parameters>
             <Parameter id="maxSpeed">375</Parameter>
             <Parameter id="price">5472000</Parameter>
-            <Parameter id="acceleration">2</Parameter>
+            <Parameter id="acceleration">3</Parameter>
         </Parameters>
     </Car>
     ...
