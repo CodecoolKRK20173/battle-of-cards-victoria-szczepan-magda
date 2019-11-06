@@ -10,4 +10,8 @@ public abstract class Player {
 
     public abstract String getName();
 
+    public abstract Card getTopCardFromHand();
+
+    public abstract boolean isHandEmpty();
+
 }

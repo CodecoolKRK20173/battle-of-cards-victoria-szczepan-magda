@@ -27,10 +27,10 @@ public class Card implements Comparator {
     }
     public String toString(){
         String content = "";
-        content = content.concat("\n"+name+":" +
+        content = content.concat("\n" + "-".repeat(20) + "\n"+name+":" +
                 "\nMax Speed: " + getMaxSpeed()+" km/h"+
                 "\nPrice: " + getPrice())+" zl"+
-                "\nAcceleration: " + getAcceleration()+" s\n"
+                "\nAcceleration: " + getAcceleration()+" s\n" + "-".repeat(20) + "\n"
                 ;
         return content;
     }
