@@ -51,6 +51,7 @@ public class Game {
         }else {
             announceWinner(findOppositePlayer(player));
             }
+        View.displayPoints(player1, player2);
 
         table.removeAll();
     }
