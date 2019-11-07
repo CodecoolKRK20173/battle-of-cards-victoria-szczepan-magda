@@ -28,5 +28,17 @@ public class View {
         }
     }
 
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static void displayPoints(Player player1, Player player2){
+        String player1Points = String.valueOf(player1.getPoints());
+        String player2Points = String.valueOf(player2.getPoints());
+        System.out.print("player1 points: " + player1Points + "\n");
+        System.out.print("player2 points: " + player2Points + "\n");
+
+    }
 
 }

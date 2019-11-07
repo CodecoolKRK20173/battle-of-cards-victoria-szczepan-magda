@@ -37,31 +37,36 @@ public class Game {
     }
 
     public void turn(Player player) {
+        View.clearScreen();
         Card topCard = player.getTopCardFromHand();
-        View.display(topCard.toString());
-        View.printParametersToChoose(topCard.getParametersKeys());
-        String userChoice = handleUserChoice();
+        String userChoice = player.displayParametersAndGetChoice(topCard);
         Boolean isResolved;
         do {
             table.getTopCards();
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
         } while (isResolved == null && !player1.isHandEmpty());
-        if (isResolved) {
-            if (player.equals(player1)) {
-                announceWinner(player1);
-            } else {
-                announceWinner(player2);
-            }
-        } else {
-            if (player.equals(player1)) {
-                announceWinner(player2);
-            } else {
-                announceWinner(player1);
+
+        if (isResolved != null){
+            if (isResolved) {
+                announceWinner(player);
+            }else if (!isResolved) {
+                announceWinner(findOppositePlayer(player));
             }
         }
 
+        View.displayPoints(player1, player2);
+
         table.removeAll();
+    }
+
+    private Player findOppositePlayer(Player player) {
+        if (player.equals(player1)) {
+            return player2;
+        }
+        else{
+            return player1;
+        }
     }
 
     private void announceWinner(Player player) {
@@ -70,18 +75,7 @@ public class Game {
     }
 
 
-    private String handleUserChoice() {
-        String parameter = "";
-        String userInput = View.getUserInput();
-        if (userInput.equals("1")) {
-            parameter = "maxSpeed";
-        } else if (userInput.equals("2")) {
-            parameter = "price";
-        } else if(userInput.equals("3")) {
-            parameter = "acceleration";
-        }
-        return parameter;
-    }
+
 
     private String getWinner(){
         if (player1.getPoints() > player2.getPoints()){

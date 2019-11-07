@@ -18,4 +18,18 @@ public abstract class Player {
 
     public abstract void removeTopCardFromHand();
 
+    public abstract String displayParametersAndGetChoice(Card topCard);
+
+    public String handleUserChoice(String userInput) {
+        String parameter = "";
+        if (userInput.equals("1")) {
+            parameter = "maxSpeed";
+        } else if (userInput.equals("2")) {
+            parameter = "price";
+        } else if(userInput.equals("3")) {
+            parameter = "acceleration";
+        }
+        return parameter;
+    }
+
 }
