@@ -31,4 +31,20 @@
             <Parameter id="acceleration">4</Parameter>
         </Parameters>
     </Car>
+    ...
+    <Car id="Bentley Continental Supersports">
+        <Parameters>
+            <Parameter id="maxSpeed">330</Parameter>
+            <Parameter id="price">275000</Parameter>
+            <Parameter id="acceleration">3.7</Parameter>
+        </Parameters>
+    </Car>
+    ...
+    <Car id="Tesla Modex X">
+        <Parameters>
+            <Parameter id="maxSpeed">320</Parameter>
+            <Parameter id="price">480341</Parameter>
+            <Parameter id="acceleration">6</Parameter>
+        </Parameters>
+    </Car>
 </Cars>
