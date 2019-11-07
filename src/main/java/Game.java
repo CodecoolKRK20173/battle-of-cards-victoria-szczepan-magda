@@ -46,11 +46,15 @@ public class Game {
             View.display(table.toString());
             isResolved = table.getBattleResult(player, userChoice);
         } while (isResolved == null && !player1.isHandEmpty());
-        if (isResolved) {
-            announceWinner(player);
-        }else {
-            announceWinner(findOppositePlayer(player));
+
+        if (isResolved != null){
+            if (isResolved) {
+                announceWinner(player);
+            }else if (!isResolved) {
+                announceWinner(findOppositePlayer(player));
             }
+        }
+
         View.displayPoints(player1, player2);
 
         table.removeAll();
