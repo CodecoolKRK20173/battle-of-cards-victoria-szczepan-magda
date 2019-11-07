@@ -37,10 +37,9 @@ public class Game {
     }
 
     public void turn(Player player) {
+        View.clearScreen();
         Card topCard = player.getTopCardFromHand();
-        View.display(topCard.toString());
-        View.printParametersToChoose(topCard.getParametersKeys());
-        String userChoice = handleUserChoice();
+        String userChoice = player.displayParametersAndGetChoice(topCard);
         Boolean isResolved;
         do {
             table.getTopCards();
@@ -71,18 +70,7 @@ public class Game {
     }
 
 
-    private String handleUserChoice() {
-        String parameter = "";
-        String userInput = View.getUserInput();
-        if (userInput.equals("1")) {
-            parameter = "maxSpeed";
-        } else if (userInput.equals("2")) {
-            parameter = "price";
-        } else if(userInput.equals("3")) {
-            parameter = "acceleration";
-        }
-        return parameter;
-    }
+
 
     private String getWinner(){
         if (player1.getPoints() > player2.getPoints()){
