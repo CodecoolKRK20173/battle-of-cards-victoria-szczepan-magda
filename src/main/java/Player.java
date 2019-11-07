@@ -2,21 +2,47 @@ package main.java;
 
 public abstract class Player {
 
-    public abstract Hand getHand();
+    private Hand hand;
+    private int points;
+    private String name;
 
-    public abstract void addPoints(int pointsAmount);
+    public Player(String name) {
+        this.name = name;
+        this.points = 0;
+        this.hand = new Hand();
+    }
 
-    public abstract int getPoints();
+    public Hand getHand() {
+        return this.hand;
+    }
 
-    public abstract String getName();
+    public void addPoints(int pointsAmount) {
+        this.points += pointsAmount;
+    }
 
-    public abstract Card getTopCardFromHand();
+    public int getPoints() {
+        return this.points;
+    }
 
-    public abstract boolean isHandEmpty();
+    public String getName() {
+        return this.name;
+    }
 
-    public abstract void addCardToDeck(Card card);
+    public Card getTopCardFromHand() {
+        return hand.getTopCard();
+    }
 
-    public abstract void removeTopCardFromHand();
+    public boolean isHandEmpty() {
+        return hand.isEmpty();
+    }
+
+    public void addCardToDeck(Card card) {
+        hand.addCard(card);
+    }
+
+    public void removeTopCardFromHand() {
+        hand.removeTopCard();
+    }
 
     public abstract String displayParametersAndGetChoice(Card topCard);
 
@@ -29,6 +55,7 @@ public abstract class Player {
         } else if(userInput.equals("3")) {
             parameter = "acceleration";
         }
+        View.display("\nChosen parameter: " + parameter + "\n\n");
         return parameter;
     }
 
