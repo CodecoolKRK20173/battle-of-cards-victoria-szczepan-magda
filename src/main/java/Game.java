@@ -48,20 +48,21 @@ public class Game {
             isResolved = table.getBattleResult(player, userChoice);
         } while (isResolved == null && !player1.isHandEmpty());
         if (isResolved) {
-            if (player.equals(player1)) {
-                announceWinner(player1);
-            } else {
-                announceWinner(player2);
+            announceWinner(player);
+        }else {
+            announceWinner(findOppositePlayer(player));
             }
-        } else {
-            if (player.equals(player1)) {
-                announceWinner(player2);
-            } else {
-                announceWinner(player1);
-            }
-        }
 
         table.removeAll();
+    }
+
+    private Player findOppositePlayer(Player player) {
+        if (player.equals(player1)) {
+            return player2;
+        }
+        else{
+            return player1;
+        }
     }
 
     private void announceWinner(Player player) {
