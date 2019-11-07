@@ -12,10 +12,22 @@ public class Game {
 
     Game() {
         player1 = new PlayerHuman("player1");
-        player2 = new PlayerHuman("player2");
+        handleChoosingMode();
         deck = new ArrayList<>();
         table = new Table(player1, player2);
         xmlParser = new XMLParser();
+    }
+
+    private void handleChoosingMode() {
+        View.displayMenu();
+        String userChoice = View.getUserInput();
+        if (userChoice.equals("1")) {
+            player2 = new AIPlayer();
+        } else if (userChoice.equals("2")) {
+            player2 = new PlayerHuman("player2");
+        } else {
+            System.exit(0);
+        }
     }
 
     public void loadCardsToDeck() {
@@ -73,8 +85,6 @@ public class Game {
         View.display(player.getName() + " wins round! And gets " + table.countCardsOnTable() + " points!\n");
         player.addPoints(table.countCardsOnTable());
     }
-
-
 
 
     private String getWinner(){

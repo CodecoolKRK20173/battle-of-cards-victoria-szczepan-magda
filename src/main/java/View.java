@@ -6,6 +6,13 @@ import java.util.Scanner;
 
 public class View {
 
+    public static void displayMenu() {
+        System.out.println("Please, choose mode of the game: ");
+        System.out.println("1. Player vs Computer mode");
+        System.out.println("2. Multi player mode");
+        System.out.println("3. Exit");
+    }
+
     public static void display(String message){
         System.out.print(message);
     }
