@@ -68,7 +68,7 @@ public class Game {
         }
 
         View.displayPoints(player1, player2);
-
+        View.pause(2000);
         table.removeAll();
     }
 

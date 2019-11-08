@@ -48,4 +48,12 @@ public class View {
 
     }
 
+    public static void pause(int i) {
+        try {
+            Thread.sleep(i);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
 }
